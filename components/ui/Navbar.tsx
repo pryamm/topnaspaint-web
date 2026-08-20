@@ -48,7 +48,6 @@ export function Navbar() {
     { id: 'products', icon: Package, label: 'Produk', href: '/products' },
     { id: 'partnership', icon: Handshake, label: 'Kemitraan', href: pathname === '/' ? '#partnership' : '/#partnership' },
     { id: 'location', icon: MapPin, label: 'Lokasi', href: '/map' },
-    { id: 'faq', icon: MessageCircle, label: 'Tanya Jawab', href: pathname === '/' ? '#faq' : '/#faq' },
     { id: 'contact', icon: Phone, label: 'Kontak', href: pathname === '/' ? '#contact' : '/#contact' },
   ];
 
