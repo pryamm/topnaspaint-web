@@ -76,7 +76,7 @@ export function HeroSection() {
         {/* Centered Actions */}
         <div className='flex flex-wrap justify-center gap-4'>
           <a
-            href='https://wa.me/62822222394?text=Halo%20Topnas%20Paint,%20saya%20tertarik%20menjadi%20mitra%20distributor.'
+            href='https://wa.me/6285221268938?text=Halo%20Topnas%20Paint,%20saya%20tertarik%20menjadi%20mitra%20distributor.'
             target='_blank'
             rel='noopener noreferrer'
             className='px-8 py-4 bg-slate-900 hover:bg-slate-800 active:scale-95 transition-all text-white font-bold rounded-full shadow-xl shadow-slate-900/20 flex items-center gap-2 group'

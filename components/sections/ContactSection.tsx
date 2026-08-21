@@ -58,35 +58,40 @@ export function ContactSection() {
             </p>
 
             <div className='space-y-6'>
-              <div className='flex items-center gap-4'>
-                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center'>
-                  <Phone size={20} />
+              <a href="tel:+6285221268938" className='flex items-center gap-4 group cursor-pointer'>
+                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-active:scale-95 transition-all shrink-0'>
+                  <Phone size={20} className='group-hover:scale-110 transition-transform' />
                 </div>
                 <div>
                   <div className='text-sm text-primary-100'>Telepon</div>
-                  <div className='font-medium'>+62 822-2223-94</div>
+                  <div className='font-medium group-hover:text-emerald-200 transition-colors'>+62 852-2126-8938</div>
                 </div>
-              </div>
-              <div className='flex items-center gap-4'>
-                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center'>
-                  <Mail size={20} />
+              </a>
+              <a href="mailto:topnaspaint@gmail.com" className='flex items-center gap-4 group cursor-pointer'>
+                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-active:scale-95 transition-all shrink-0'>
+                  <Mail size={20} className='group-hover:scale-110 transition-transform' />
                 </div>
                 <div>
                   <div className='text-sm text-primary-100'>Email</div>
-                  <div className='font-medium'>topnaspaint@gmail.com</div>
+                  <div className='font-medium group-hover:text-emerald-200 transition-colors'>topnaspaint@gmail.com</div>
                 </div>
-              </div>
-              <div className='flex items-center gap-4'>
-                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center'>
-                  <MapPin size={20} />
+              </a>
+              <a 
+                href='https://www.google.com/maps/dir/?api=1&destination=-7.003726,107.630353'
+                target='_blank'
+                rel='noopener noreferrer' 
+                className='flex items-center gap-4 group cursor-pointer'
+              >
+                <div className='w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-active:scale-95 transition-all shrink-0'>
+                  <MapPin size={20} className='group-hover:scale-110 transition-transform' />
                 </div>
                 <div>
                   <div className='text-sm text-primary-100'>Kantor Pusat</div>
-                  <div className='font-medium leading-relaxed'>
+                  <div className='font-medium leading-relaxed group-hover:text-emerald-200 transition-colors'>
                     Jl. Siliwangi No.56, Baleendah, Kec. Baleendah,<br/>Kabupaten Bandung, Jawa Barat 40375
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className='mt-12'>
@@ -95,7 +100,7 @@ export function ContactSection() {
               </h3>
               <div className='flex gap-4'>
                 <a
-                  href='https://wa.me/62822222394?text=Halo%20Topnas%20Paint,%20saya%20ingin%20bertanya%20seputar%20kemitraan.'
+                  href='https://wa.me/6285221268938?text=Halo%20Topnas%20Paint,%20saya%20ingin%20bertanya%20seputar%20kemitraan.'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-95 flex items-center justify-center transition-all group shadow-sm border border-white/10'

@@ -12,6 +12,10 @@ export function TrustMetricsSection() {
     { year: '2024', partners: 580 },
   ];
 
+    const startYear = 2003;
+  const currentYear = new Date().getFullYear();
+  const yearsOfExperience = currentYear - startYear;
+
   return (
     <section className="py-20 px-4 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row gap-8 items-stretch">
@@ -20,7 +24,7 @@ export function TrustMetricsSection() {
         <div className="flex-1 grid grid-cols-2 gap-4">
           <div className="bg-emerald-50 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center shadow-sm border border-emerald-100">
             <Award className="text-emerald-500 mb-4" size={40} />
-            <h4 className="text-4xl font-extrabold text-slate-800 mb-2">15+</h4>
+            <h4 className="text-4xl font-extrabold text-slate-800 mb-2">{yearsOfExperience}+</h4>
             <p className="text-sm text-slate-600 font-medium">Tahun Pengalaman</p>
           </div>
           <div className="bg-teal-50 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center shadow-sm border border-teal-100">
@@ -35,7 +39,7 @@ export function TrustMetricsSection() {
           </div>
           <div className="bg-indigo-50 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center shadow-sm border border-indigo-100">
             <PaintBucket className="text-indigo-500 mb-4" size={40} />
-            <h4 className="text-4xl font-extrabold text-slate-800 mb-2">5 Thn</h4>
+            <h4 className="text-4xl font-extrabold text-slate-800 mb-2">1 Thn</h4>
             <p className="text-sm text-slate-600 font-medium">Garansi Warna</p>
           </div>
         </div>
