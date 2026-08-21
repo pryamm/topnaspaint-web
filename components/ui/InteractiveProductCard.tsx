@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Product } from '@/lib/data/products';
 
@@ -11,6 +11,17 @@ interface InteractiveProductCardProps {
 export function InteractiveProductCard({ product }: InteractiveProductCardProps) {
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0]?.hex || '#f1f5f9');
   const [colorName, setColorName] = useState(product.colors?.[0]?.name || '');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (product.colors && product.colors.length > 0) {
+        const randomIndex = Math.floor(Math.random() * product.colors.length);
+        setSelectedColor(product.colors[randomIndex].hex);
+        setColorName(product.colors[randomIndex].name);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [product.colors]);
 
   const getBrightness = (hex: string) => {
     let r = 0, g = 0, b = 0;
@@ -68,41 +79,43 @@ export function InteractiveProductCard({ product }: InteractiveProductCardProps)
           {product.description}
         </p>
 
-        {/* Features Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {product.features.map((feature, idx) => (
-            <span key={idx} className={`text-[10px] font-semibold px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm ${textColor} ${badgeBg}`}>
-              {feature}
-            </span>
-          ))}
-        </div>
 
         {/* Color Picker (Sleek layout) */}
         {product.colors && product.colors.length > 0 && (
           <div className="mt-auto pt-4 border-t border-white/20">
             <div className="flex items-center justify-between mb-2">
-              <span className={`text-xs font-semibold ${mutedColor}`}>Pilihan Warna</span>
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${textColor} ${badgeBg}`}>{colorName}</span>
+              <span className={`text-xs font-semibold ${mutedColor}`}>Pilihan Warna ({product.colors.length})</span>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${textColor} ${badgeBg} max-w-[120px] truncate`}>{colorName}</span>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {product.colors.map((color) => (
-                <button
-                  key={color.name}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedColor(color.hex);
-                    setColorName(color.name);
-                  }}
-                  className={`w-7 h-7 rounded-full shadow-sm transition-all duration-300 focus:outline-none ${
-                    selectedColor === color.hex 
-                      ? 'ring-2 ring-offset-2 ring-slate-800 scale-110' 
-                      : 'ring-1 ring-slate-200/50 hover:scale-110'
-                  }`}
-                  style={{ backgroundColor: color.hex }}
-                  title={color.name}
-                  aria-label={`Pilih warna ${color.name}`}
-                />
-              ))}
+            
+            {/* Scrollable Container with Fade Edges */}
+            <div className="relative group/scroll">
+              {/* Left Fade Mask */}
+              <div className={`absolute top-0 bottom-0 left-0 w-6 z-10 bg-gradient-to-r ${isDark ? 'from-black/40' : 'from-slate-100/90'} to-transparent pointer-events-none rounded-l-md opacity-100 transition-opacity`}></div>
+              
+              {/* Right Fade Mask */}
+              <div className={`absolute top-0 bottom-0 right-0 w-6 z-10 bg-gradient-to-l ${isDark ? 'from-black/40' : 'from-slate-100/90'} to-transparent pointer-events-none rounded-r-md opacity-100 transition-opacity`}></div>
+              
+              <div className="flex gap-2 overflow-x-auto scrollbar-hide py-2 px-1 snap-x scroll-smooth">
+                {product.colors.map((color) => (
+                  <button
+                    key={color.name}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectedColor(color.hex);
+                      setColorName(color.name);
+                    }}
+                    className={`shrink-0 snap-center w-7 h-7 rounded-full shadow-sm transition-all duration-300 focus:outline-none ${
+                      selectedColor === color.hex 
+                        ? 'ring-2 ring-offset-2 ring-slate-800 scale-110' 
+                        : 'ring-1 ring-slate-200/50 hover:scale-110'
+                    }`}
+                    style={{ backgroundColor: color.hex }}
+                    title={color.name}
+                    aria-label={`Pilih warna ${color.name}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         )}

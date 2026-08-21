@@ -16,9 +16,11 @@ export function ProductCatalog({ limit }: ProductCatalogProps) {
         <p className="text-slate-500 mt-2 text-lg">Cat berkualitas tinggi bersertifikasi SNI yang dipercaya masyarakat.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="flex flex-wrap justify-center gap-8">
         {displayProducts.map((product) => (
-          <InteractiveProductCard key={product.id} product={product} />
+          <div key={product.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm">
+            <InteractiveProductCard product={product} />
+          </div>
         ))}
       </div>
 

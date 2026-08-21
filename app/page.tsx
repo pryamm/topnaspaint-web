@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <TrustMetricsSection />
       <TechnologySection />
-      <ProductCatalog limit={4} />
+      <ProductCatalog />
       <ColorSimulatorCTA />
       <PartnershipBenefitsSection />
       <TestimonialSection />
